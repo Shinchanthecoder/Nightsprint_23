@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HOME Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+  <style>
+    body {
+      background-color: rgb(213, 242, 255);
+      
+    }
+    .circular-image {
+      width: 400px; /* Set the width and height to create a circle */
+      height: 400px;
+      border-radius: 50%; /* Make it circular */
+      object-fit: cover; /* Ensure the image fills the circle without stretching */
+      margin: 0 auto; /* Center the circular image horizontally within the column */
+      display: block; /* Ensure it's a block-level element for margin auto to work */
+    
+    }
+    .container {
+      display: flex;
+      justify-content: space-between; /* Create two columns with space between them */
+      align-items: center; /* Vertically center the content */
+      width: 100%;
+      /* height: 500px; */
+    }
+
+    /* Column styles */
+    .column {
+      flex: 1; /* Each column takes up an equal amount of space */
+      padding: 30px;
+      border: 1px solid #171717;
+    }
+    .dropdown-menu {
+      transition: all 0.3s;
+    }
+
+    .dropdown-menu:hover {
+      transform: scale(1.05);
+    }
+
+    .hi {
+      position: relative;
+    }
+
+    .hi::after {
+      content: '';
+      opacity: 0;
+      transition: all 0.2s;
+      height: 2px;
+      width: 100%;
+      background-color: rgb(215, 25, 48);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .hi:hover::after {
+      opacity: 1;
+    }
+
+    h1 {
+            margin: 10px 0;
+        }
+
+    .hello:hover {
+      color: rgb(57, 255, 215);
+    }
+    .yolo{
+      font-family: "Audiowide", sans-serif;
+    }
+    .setwidth{
+      width: 70%;
+    }
+    .col-md-4 {
+    margin-bottom: 80px; /* Adjust the margin as needed */
+  }
+    .card{
+      box-shadow: 0 2px 5px 0;
+      border-radius: 25px;
+      transition: all 0.3s;
+      background-color: rgb(251, 251, 251);
+    }
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    /* .hack{
+      width: 73%; 
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 8px 0;
+      border-radius: 25px;
+      
+    } */
+    .img-responsive{
+      width: 450px;
+    }
+    
+   
+
+    /* .middle{
+      /* align-content: center; */
+      /* align-items: center; */
+      /* text-align: center; */
+      /* align-self: center;
+      width: 80%
+      
+    } */ 
+    footer{
+      width: 100%;
+      /* position: absolute; */
+      bottom: 0;
+      background: linear-gradient(to right,#1f1f1f, #4f4f4f);
+      color: #fff;
+      padding: 100px 0 30px;
+      border-top-left-radius: 125px;
+      font-size: 13px;
+      line-height: 20px;
+
+    }
+    .row1{
+      width: 85%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+
+    }
+    .column1{
+      flex-basis: 25%;
+      padding: 10px;
+
+    }
+    .column1:nth-child(2), .column1:nth-child(3){
+      flex-basis: 15%;
+    }
+    .column1 h3{
+      width: fit-content;
+      margin-bottom: 40px;
+      position: relative;
+
+    }
+    .email-id{
+      width: fit-content;
+      border-bottom: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    .logo{
+      width: 80px;
+      margin-bottom: 30px;
+    }
+     
+    .lol li{
+      list-style: none;
+      margin-bottom: 12px;
+    }
+    ul li a{
+      text-decoration: none;
+      color: white;
+      
+    }
+    .b1{
+      padding-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 50px;
+    }
+
+    form .far{
+      font-size: 18px;
+      margin-right: 10px;
+
+     }
+    form input{
+      width: 100%;
+      background: transparent;
+      color: #ccc;
+      border: 0;
+      outline: none;
+    }
+    form button{
+      background: transparent;
+      border: 0;
+      outline: none;
+      cursor : pointer;
+
+    }
+    .social-icons .fa-brands{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-size: 20px;
+      color: #000;
+      background: white;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+  
+  
+</head>
+
+<body>
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-lg bg- border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand yolo" href="#" style="color:rgb(193, 20, 61) ;  "><b> BLOODY</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link hi active " style="color: black;" aria-current="page" href="/indexx.html"><h5><b>Home</b></h5></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hi" style="color: black;" href="/index.html"><h5><b>Questions</b></h5></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link hi" style="color: black;" href="#about"><h5><b>About</b></h5></a>
+          </li>
+          <form class="d-flex" role="search">
+            <a href="/login.html" class="btn btn-primary" style="height: 40px;">Doctor</a>
+        </form>
+        
+          
+          
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+        <form class="d-flex" role="search">
+          
+          <button class="btn btn-success" type="submit">Login/signup</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><span><img src="	https://poshanabhiyaan.gov.in/images/HeaderFooterNew/header-logo.png" alt="" class="img-fluid abhiyan_logo"></span><span><a href="/"><img src="	https://poshanabhiyaan.gov.in/images/HeaderFooterNew/JANANDOLAN.png" alt="" class="img-fluid janandolan_logo"></a></span><span><img src="	https://poshanabhiyaan.gov.in/images/HeaderFooterNew/header_new_logo.png" alt="" class="img-fluid ps-3 g20_logo"></span></a>
+  </div>
+  
+
+  <!-- NAVBAR ENDS -->
+  <!-- NAVBAR ENDS -->
+
+
+
+  <div class="hack">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://poshanabhiyaan.gov.in/images/Homepage/poshan_maah_banner.jpg?v2" width="1800" height="550" class="d-block w-100" alt="..." style="border-radius: 25px;">
+       
+      </div>
+      <div class="carousel-item">
+        <img src="https://poshanabhiyaan.gov.in/images/Homepage/poshan_maah_banner.jpg?v2" width="1800" height="550" class="d-block w-100" alt="..." style="border-radius: 25px;">
+        
+      </div>
+      
+
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+</div>
+
+
+
+  <br>
+  <div id="about" style="color: rgb(213, 222, 219);">hello</div>
+  <br>
+  <!-- Container with Text and Image -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-container">
+          <h2>ABOUT</h2>
+          <p>
+            We are committed to promoting the well-being of every child. Our approach is based on collecting crucial data through periodic assessments, following WHO (World Health Organization) guidelines, and using static forms. These assessments are vital for monitoring a child's growth and development, ensuring that they have the best possible start in life.
+            For children identified as differently-abled, our team offers comprehensive support, including medical consultations, surgeries, therapies (such as physiotherapy, speech therapy, and occupational therapy), assistance in availing social security schemes, enrollment into schools, and provision of adaptive devices. This support is provided through face-to-face interactions or tele-rehabilitation, ensuring that every child receives the care and attention they deserve.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="image-container">
+          <img class="square-image" style="position:relative;" src="https://s3.envato.com/files/195496717/India-States-Map.png" width="450" height="450" alt="Your Image">
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // Smooth scroll to the target section
+        $("a.nav-link[href^='#']").on("click", function (e) {
+          e.preventDefault();
+          var target = this.hash;
+          $("html, body").animate({
+            scrollTop: $(target).offset().top
+          }, 800, "swing", function () {
+            window.location.hash = target;
+          });
+        });
+      });
+    </script>
+    
+  </section>
+  <div>
+    <br>
+  </div>
+  <!-- <section class="container">
+
+    here it is a code for container containing text.
+    <div class="row">
+      <div class="col-md-4">
+        <div class="text-container">
+          <h2>Container 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, sit exercitationem. Laudantium impedit
+            laborum tempore neque sint eius dolores ea amet ducimus quisquam in voluptatibus ipsam nulla saepe excepturi
+            debitis error consequuntur nesciunt molestiae eaque explicabo corrupti qui, praesentium voluptatum.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-container">
+          <h2>Container 2</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, sit exercitationem. Laudantium impedit
+            laborum tempore neque sint eius dolores ea amet ducimus quisquam in voluptatibus ipsam nulla saepe excepturi
+            debitis error consequuntur nesciunt molestiae eaque explicabo corrupti qui, praesentium voluptatum.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-container">
+          <h2>Container 3</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, sit exercitationem. Laudantium impedit
+            laborum tempore neque sint eius dolores ea amet ducimus quisquam in voluptatibus ipsam nulla saepe excepturi
+            debitis error consequuntur nesciunt molestiae eaque explicabo corrupti qui, praesentium voluptatum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+<!-- Container with Cards -->
+<section class="container setwidth mt-3">
+  <!-- <section class="middle"> -->
+  <div class="row card-row">
+    <div class="col-md-4 mb-3 ">
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnZwNDMNYQVva2IwOvySD-Thv_EvvwG6x1Bg&usqp=CAU"  width="700" height="200" class="card-img-top" alt="Card Image" style="border-radius: 25px;">
+        <div class="card-body">
+          <h5 class="card-title">Education</h5>
+          <p class="card-text">We will provide information to the community such as nutrition, basic sanitation & hygienic practices.</p>
+          <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="https://www.birlahospital.com/wp-content/uploads/2021/10/Birlas-Child-Health-Checkup.jpg" 
+        width="700" height="200" class="card-img-top" alt="Card Image" style="border-radius: 25px;">
+        <div class="card-body">
+          <h5 class="card-title">Check-up</h5>
+          <p class="card-text">we use to provide weekly checkup and test by a doctor which are needed for safety of the  kids.  </p>
+          <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="https://www.unicef.org/supply/sites/unicef.org.supply/files/styles/hero_tablet/public/pakistan-UN0324721-banner.jpg?itok=vbvrHa-f" width="700" height="200" class="card-img-top" alt="Card Image" style="border-radius: 25px;">
+        <div class="card-body">
+          <h5 class="card-title">Vaccines</h5>
+          <p class="card-text">We provide the list of essential vaccines and medicines as stated by the government of india.</p>
+          <!-- <a href="#" class="btn btn-primary">Learn More</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<br>
+
+
+<div class="hello" style="padding-left: 5%;">
+<h2> ASHA GROUP</h2>
+</div>
+<div class="container">
+   
+        <div class="text">
+        <ul>
+            <li>Promoting maternal and child health</li><br>
+            <li>Assisting in family planning</li><br>
+            <li>Encouraging immunization and vaccination</li><br>
+            <li>Identifying and managing common illnesses in the community.</li><br>
+            <li>Providing health education and promoting healthy practices.</li><br>
+            <li>Mobilizing the community to access healthcare services and government health schemes.</li><br>
+            <li>Monitoring vital events and maintaining health records in their respective areas.</li>
+            <form class="d-flex" role="search">
+                <a href="https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=177&lid=250" class="btn btn-success">more</a>
+            </form>
+            
+            
+        </ul>
+        </div>
+        <div class="image">
+            <img src="https://www.hsph.harvard.edu/wp-content/uploads/sites/2413/2017/08/ASHAs.jpg" width="400" height="400" alt="ASHA Worker Photo">
+        </div>
+    </div><br>
+<br>
+
+<footer>
+    <div class="row1">
+      <div class="column1">
+        <img src="" alt="" class="logo">
+        <p> We are committed to promoting the well-being of every child. Our approach is based on collecting crucial data through periodic assessments, following WHO (World Health Organization) guidelines, and using static forms. These assessments are vital for monitoring a child's growth and development, ensuring that they have the best possible start in life.
+            For children identified as differently-abled, our team offers comprehensive support, including medical consultations, surgeries, therapies (such as physiotherapy, speech therapy, and occupational therapy), assistance in availing social security schemes, enrollment into schools, and provision of adaptive devices.</p>
+      </div>
+      <div class="column1">
+        <h3>Office</h3>
+        <p>ITPL number</p>
+        <p>jnef</p>
+        <p>jefwef</p>
+        <div class="email-id">harshit@gmail.com</div>
+        <h5>+91-893745879</h5>
+  
+      </div>
+      <div class="column1">
+        <h3>Links</h3>
+        <ul class="lol">
+          <li><a href="">Home</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="">Feautures</a></li>
+        </ul>
+      </div>
+      <div class="column1">
+        <h3>Aashayein</h3>
+        <form class="b1">
+          <i class="fa-regular fa-envelope fa-bounce" style="color: #fec8c8;"></i>
+          
+          <input type="email" placeholder="   Enter your email id" required>
+          <button type="submit"><i class="fa-solid fa-arrow-right" style="color: #fcfcfc;"></i></button>
+        </form>
+        <div class="social-icons">
+          <i class="fa-brands fa-facebook" style="color: #1c6bf2;"></i>
+          <i class="fa-brands fa-instagram" style="color: #fb6599;"></i>
+          <i class="fa-brands fa-whatsapp" style="color: #23c762;"></i>
+          <i class="fa-brands fa-x-twitter" style="color: #a1a1a1;"></i>
+  
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Include Bootstrap JavaScript and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+EUkzFeI5F5fCkBTq5OeF5f5F5f5F5f5F5f5F5f5F5f5F5f5F5f"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6ea9c62c3f.js"></script>
+
+
+</body>
+
+</html>

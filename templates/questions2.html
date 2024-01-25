@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Your head content goes here -->
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Aashayein</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+      <link rel="stylesheet" href="write.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css">
+      <style>
+          /* Navbar styles (same as before) */
+          .navbar {
+              background-color: #C71585;
+          }
+          .pink-bg {
+              background-color: #FFC0CB;
+          }
+          .pink-text {
+              color: #C71585;
+          }
+          .nav-link {
+              font-size: 18px;
+              color: rgb(255, 255, 255);
+              margin-right: 15px;
+              transition: all 0.3s;
+          }
+          .nav-link:hover {
+              font-size: 20px;
+              color: #FF69B4;
+          }
+          .nav-link:active {
+              font-size: 20px;
+              color: #C71585;
+          }
+          /* Writing section styles */
+          .writing-section {
+              padding: 50px 0;
+              background-image: url('images/writebg.jpg');
+              background-size: cover;
+              background-position: center;
+              width: 60%;
+              height: 120vh;
+          }
+          .writing-title {
+              text-align: center;
+              text-shadow: 0px 0px 5px #C71585;
+          }
+          .writing-form {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 40px;
+              background-color: #ffffff;
+              border-radius: 10px;
+          }
+          .form-group label {
+              color: #C71585;
+          }
+          .form-control:focus {
+              border-color: #C71585;
+              box-shadow: 0 0 5px #C24594;
+          }
+          .btn-primary {
+              background-color: #C71585;
+              border: none;
+          }
+          .btn-primary:hover, .btn-primary:active {
+              background-color: #B7147B !important;
+          }
+          .form-check-input {
+              margin-right: 10px;
+          }
+          .form-check-input:checked {
+              background-color: #C71585;
+              border-color: #C71585;
+          }
+          .form-check-input:focus {
+              outline: none !important;
+              box-shadow: 0 0 5px #C24594 !important;
+          }
+          /* Publishing options (same as before) */
+          .publishing-options {
+              background-color: #f1f1f1;
+              width: 40%;
+              max-height: 120vh;
+              padding: 70px 0;
+              overflow-y: scroll;
+          }
+          .publish-title {
+              text-align: center;
+              color: #C71585;
+          }
+          .journal-card {
+              max-width: 24rem;
+              margin: auto;
+          }
+          .card-img-top {
+              max-width: 100%;
+              height: auto;
+              object-fit: cover;
+          }
+          @media screen and (max-width: 800px) {
+              .writing-section {
+                  width: 100%;
+              }
+              .publishing-options {
+                  width: 100%;
+                  padding: 40px 0;
+              }
+          }
+          /* Scrollbar */
+          ::-webkit-scrollbar {
+              width: 8px;
+          }
+          ::-webkit-scrollbar-track {
+              background: #f1f1f1;
+              border-radius: 10px;
+          }
+          ::-webkit-scrollbar-thumb {
+              background: #888;
+              border-radius: 10px;
+          }
+          ::-webkit-scrollbar-thumb:hover {
+              background: #555;
+          }
+      </style>
+  </head>
+  
+          
+
+
+
+<body>
+    <nav class="navbar bg-body-tertiary fixed-top pink-bg">
+        <!-- Your navbar content goes here -->
+              <div class="container-fluid d-flex justify-content-between align-items-center">
+                  <a class="navbar-brand pink-text" href="index.html"><b>Bloody Coders</b></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+              </div>
+              <div class="offcanvas offcanvas-end pink-bg" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                  <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: #C71585;">Bloody Coders</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                          <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="write.html">About</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="read.html">Help</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+         
+      
+
+    </nav>
+
+    <!-- Writing section -->
+    <main class="main-content d-flex flex-wrap">
+        <section class="writing-section" style="width: 100%;">
+            <div class="container p-4" style="background-color: #f3b8ff;">
+                <h2 class="writing-title mb-5">Assessment</h2>
+                <div class="writing-form" style="background-color: #faddff;">
+                    <form id="journal-form" action="{{ url_for('ask_questions', child_age=child_age, child_name=child_name) }}" method="POST">
+                        <ol>
+                            <!-- Question 1 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault1">Can your child understand and follow simple instructions, such as 'Get your ball' or 'Put on your shoes'?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child understand and follow simple instructions, such as 'Get your ball' or 'Put on your shoes'?"
+                                            id="flexRadioDefault1" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child understand and follow simple instructions, such as 'Get your ball' or 'Put on your shoes'?"
+                                            id="flexRadioDefault2" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Question 2 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault2">Can your child use simple utensils, such as a spoon or fork?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child use simple utensils, such as a spoon or fork?"
+                                            id="flexRadioDefault3" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault3">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child use simple utensils, such as a spoon or fork?"
+                                            id="flexRadioDefault4" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault4">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Add similar blocks for other questions -->
+                            <!-- Question 3 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault3">Can your child dress themselves with help?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child dress themselves with help?"
+                                            id="flexRadioDefault5" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault5">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child dress themselves with help?"
+                                            id="flexRadioDefault6" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault6">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Question 4 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault4">Can your child identify common objects, such as a car, a ball, or a cat?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child identify common objects, such as a car, a ball, or a cat?"
+                                            id="flexRadioDefault7" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault7">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child identify common objects, such as a car, a ball, or a cat?"
+                                            id="flexRadioDefault8" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault8">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Question 5 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault5">Can your child understand and use simple emotions, such as happy, sad, and angry?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child understand and use simple emotions, such as happy, sad, and angry?"
+                                            id="flexRadioDefault9" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault9">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Can your child understand and use simple emotions, such as happy, sad, and angry?"
+                                            id="flexRadioDefault10" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault10">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Question 6 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault6">Does your child have difficulty understanding or using language?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty understanding or using language?"
+                                            id="flexRadioDefault11" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault11">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty understanding or using language?"
+                                            id="flexRadioDefault12" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault12">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Question 7 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault7">Does your child have difficulty interacting with other children?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty interacting with other children?"
+                                            id="flexRadioDefault13" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault13">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty interacting with other children?"
+                                            id="flexRadioDefault14" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault14">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Question 8 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault8">Does your child have repetitive behaviors or interests?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have repetitive behaviors or interests?"
+                                            id="flexRadioDefault15" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault15">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have repetitive behaviors or interests?"
+                                            id="flexRadioDefault16" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault16">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Question 9 -->
+                            <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault9">Does your child have difficulty controlling their emotions or behavior?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty controlling their emotions or behavior?"
+                                            id="flexRadioDefault17" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault17">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty controlling their emotions or behavior?"
+                                            id="flexRadioDefault18" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault18">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                             <!-- Question 10 -->
+                             <li>
+                                <div class="form-group mb-3">
+                                    <label for="flexRadioDefault9">Does your child have difficulty paying attention in school or completing tasks?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty paying attention in school or completing tasks?"
+                                            id="flexRadioDefault17" value="Yes">
+                                        <label class="form-check-label" for="flexRadioDefault17">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Does your child have difficulty paying attention in school or completing tasks?"
+                                            id="flexRadioDefault18" value="No">
+                                        <label class="form-check-label" for="flexRadioDefault18">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <div class="form-group mb-3">
+                            <label for="journalContent">Additional feedback</label>
+                            <textarea class="form-control" id="journalContent" name="additional_feedback" rows="6"
+                                placeholder="Start writing about your experiences" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="publishBtn">Publish</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="publishing-options" style="background-color: #ffffff;">
+            <div class="container">
+                <h3 class="publish-title p-3" style="color: #3686ff;">Response</h3>
+                <div id="publishedJournals" class="mx-5"></div>
+            </div>
+        </section> -->
+    </main>
+
+    <!-- Your scripts and other content go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="write.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+    <script type="text/javascript">
+        $('#journalContent').emojioneArea({
+            pickerPosition: 'bottom'
+        });
+    </script>
+</body>
+
+</html>
